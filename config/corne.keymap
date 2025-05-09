@@ -91,7 +91,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────┬─────────╮
         //│          │ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │         │
-            &none     &rbg_ug RBG_TOG &trans &trans     &trans   &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset  &none
+            &none     &rgb_ug  RGB_TOG &trans &trans     &trans   &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset  &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│         │
             &none     &bl BL_TOG &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader &none
