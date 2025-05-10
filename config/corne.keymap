@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
 
 // Home row mods macro
 /* #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4 */
@@ -91,10 +92,10 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────┬─────────╮
         //│          │ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │         │
-            &none     &rgb_ug  RGB_TOG &trans &trans     &trans   &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset  &none
+            &none     &sys_reset  &rgb_ug RGB_EFF &trans &trans   &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset  &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│         │
-            &none     &bl BL_TOG &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader &none
+            &none     &bootloader &rgb_ug RGB_TOG &trans &trans   &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │         │
             &none      &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans     &none 
