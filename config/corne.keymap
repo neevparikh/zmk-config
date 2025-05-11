@@ -20,9 +20,13 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <170>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
+        };
+ 
+        &lt {
+            flavor = "balanced";
         };
     };
 
@@ -43,17 +47,17 @@
             &none      &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P      &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │         │
-            &none     &ht LSHFT A &ht LALT S &ht LCTRL D &ht LGUI F  &kp G        &kp H     &ht RGUI J &ht RCTRL K &ht RALT L &ht RSHFT SQT &none
+            &none   &ht LSHFT A &ht LCTRL S &ht LALT D &ht LGUI F  &kp G        &kp H     &ht RGUI J &ht RALT K &ht RCTRL L &ht RSHFT SQT &none
         //    &none      HRML(A,        S,         D,         F)     &kp G        &kp H      HRMR(J,        K,         L,        SQT)    &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │         │
             &none      &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
         //╰──────────┴──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────┴─────────╯
-                                             &none      &lt 2 TAB  &kp ENTER     &kp SPACE  &lt 1 BSPC   &none
+                                             &none      &lt 2 ESC  &kp ENTER     &kp SPACE  &lt 1 BSPC   &none
         //                                  ╰─────────┴──────────┴──────────╯   ╰──────────┴───────────────────╯
             >;
         };
-
+ 
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬─────────┬─────────╮
@@ -66,7 +70,7 @@
         //│          │ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │         │         │
             &none     &caps_word  &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans    &none 
         //╰──────────┴──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴─────────┴─────────╯
-                                             &none      &trans     &kp ESC        &trans     &trans     &none
+                                             &none      &trans     &kp TAB        &trans     &trans     &none
         //                                  ╰─────────┴──────────┴──────────╯   ╰──────────┴───────────────────╯
             >;
         };
@@ -75,7 +79,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────┬─────────╮
         //│          │          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │         │
-            &none      &trans     &kp LBKT   &kp LBRC   &kp RBRC   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT   &kp TILDE  &none
+            &none      &kp TILDE  &kp LBKT   &kp LBRC   &kp RBRC   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT   &kp TILDE  &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │         │
             &none      &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp GRAVE  &none
