@@ -5,3 +5,4 @@ zmk
 modules
 zephyr
 firmware
+zmk-helpers
