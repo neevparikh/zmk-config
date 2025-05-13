@@ -7,6 +7,9 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/34.h"
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
+#include <dt-bindings/zmk/pointing.h>
+
 #define THUMBS_L LH0 LH1 
 #define THUMBS_R RH0 RH1
 #define KEYS_L LT0 LT1 LT2 LT3 LT4\
@@ -21,9 +24,12 @@
 #define HRMR(k1,k2,k3,k4) &hmr RGUI k1  &hmr RALT k2  &hmr RCTRL k3  &hmrs RSHFT k4
 
 &lt {
-  flavor = "balanced";
+  flavor = "balanced"; 
+  tapping-term-ms = <220>;
   quick-tap-ms = <170>;
+  retro-tap;
 };
+
 
 / {
     behaviors {
@@ -31,7 +37,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <170>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
@@ -42,7 +48,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <170>;
             bindings = <&kp>, <&kp>;
             require-prior-idle-ms = <100>;
@@ -94,7 +100,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &lt 2 BSPC   &kp ESC     &kp SPACE  &lt 1 ENTER
+                                            &lt 2 ESC   &kp BSPC     &kp SPACE  &lt 1 ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -140,7 +146,7 @@
            &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
+          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &msc SCRL_DOWN &msc SCRL_UP &trans &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
             &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans

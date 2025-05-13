@@ -11,6 +11,9 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
+#include <dt-bindings/zmk/pointing.h>
+
 #define THUMBS_L LH0 LH1 
 #define THUMBS_R RH0 RH1
 #define KEYS_L LT0 LT1 LT2 LT3 LT4\
@@ -26,7 +29,9 @@
 
 &lt {
   flavor = "balanced"; 
+  tapping-term-ms = <220>;
   quick-tap-ms = <170>;
+  retro-tap;
 };
 
 / {
@@ -35,7 +40,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <170>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
@@ -46,7 +51,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <170>;
             bindings = <&kp>, <&kp>;
             require-prior-idle-ms = <100>;
@@ -98,7 +103,7 @@
         //│          │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │         │
             &none      &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
         //╰──────────┴──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────┴─────────╯
-                                             &none      &lt 2 BSPC  &kp ESC      &kp SPACE  &lt 1 ENTER &none
+                                             &none      &lt 2 ESC  &kp BSPC      &kp SPACE  &lt 1 ENTER &none
         //                                  ╰─────────┴──────────┴──────────╯   ╰──────────┴───────────────────╯
             >;
         };
@@ -116,9 +121,9 @@
             &none     &caps_word  &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans    &none 
         //╰──────────┴──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴─────────┴─────────╯
                                              &none      &trans     &trans         &trans     &trans     &none
-        //                                  ╰─────────┴──────────┴──────────╯   ╰──────────┴───────────────────╯
+       //                                  ╰─────────┴──────────┴──────────╯   ╰──────────┴───────────────────╯
             >;
-        };
+       };
 
         left_layer {
             bindings = <
@@ -144,7 +149,7 @@
             &none     &sys_reset  &rgb_ug RGB_EFF &trans &trans   &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset  &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│         │
-            &none     &bootloader &rgb_ug RGB_TOG &trans &trans   &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader &none
+            &none     &bootloader &rgb_ug RGB_TOG &trans &trans   &bt BT_SEL 1    &trans   &msc SCRL_DOWN &msc SCRL_UP &trans &bootloader &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼─────────┤
         //│          │          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │         │
             &none      &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans     &none 
