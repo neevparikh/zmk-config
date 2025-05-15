@@ -10,72 +10,141 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 #include <dt-bindings/zmk/pointing.h>
 
-#define THUMBS_L LH0 LH1 
+#define THUMBS_L LH1 LH0 
 #define THUMBS_R RH0 RH1
-#define KEYS_L LT0 LT1 LT2 LT3 LT4\
-  LM0 LM1 LM2 LM3 LM4\
-  LB0 LB1 LB2 LB3 LB4
-#define KEYS_R RT0 RT1 RT2 RT3 RT4\
+#define KEYS_L \
+  LT4 LT3 LT2 LT1 LT0\
+  LM4 LM3 LM2 LM1 LM0\
+  LB4 LB3 LB2 LB1 LB0
+#define KEYS_R \
+  RT0 RT1 RT2 RT3 RT4\
   RM0 RM1 RM2 RM3 RM4\
   RB0 RB1 RB2 RB3 RB4
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &hmls LSHFT k1  &hml LCTRL k2  &hml LALT k3  &hml LGUI k4
-#define HRMR(k1,k2,k3,k4) &hmr RGUI k1  &hmr RALT k2  &hmr RCTRL k3  &hmrs RSHFT k4
+#define HRML(k1,k2,k3,k4) &hml LSHFT k1  &hml LCTRL k2  &hml LALT k3  &hml LGUI k4
+#define HRMR(k1,k2,k3,k4) &hmr RGUI k1  &hmr RALT k2  &hmr RCTRL k3  &hmr RSHFT k4
+
+#define COMBO \
+            timeout-ms = <50>;\
+            require-prior-idle-ms = <130>;
+
+#define HOMEROW \
+            flavor = "balanced";\
+            compatible = "zmk,behavior-hold-tap";\
+            #binding-cells = <2>;\
+            hold-trigger-on-release;\
+            bindings = <&kp>, <&kp>;\
+            tapping-term-ms = <200>;\
+            require-prior-idle-ms = <145>;\
+            quick-tap-ms = <190>;\
+            hold-while-undecided;
 
 &lt {
-  flavor = "balanced"; 
-  tapping-term-ms = <220>;
-  quick-tap-ms = <170>;
-  retro-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <280>;
 };
 
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_1 {
+            COMBO
+            key-positions = <LT4 LT3>;
+            bindings = <&kp N1>;
+            layers = <0>;
+        };
+        combo_2 {
+            COMBO
+            key-positions = <LT3 LT2>;
+            bindings = <&kp N2>;
+            layers = <0>;
+        };
+        combo_3 {
+            COMBO
+            key-positions = <LT2 LT1>;
+            bindings = <&kp N3>;
+            layers = <0>;
+        };
+        combo_4 {
+            COMBO
+            key-positions = <LM4 LM3>;
+            bindings = <&kp N4>;
+            layers = <0>;
+        };
+        combo_5 {
+            COMBO
+            key-positions = <LM3 LM2>;
+            bindings = <&kp N5>;
+            layers = <0>;
+        };
+        combo_6 {
+            COMBO
+            key-positions = <LM2 LM1>;
+            bindings = <&kp N6>;
+            layers = <0>;
+        };
+        combo_7 {
+            COMBO
+            key-positions = <LB4 LB3>;
+            bindings = <&kp N7>;
+            layers = <0>;
+        };
+        combo_8 {
+            COMBO
+            key-positions = <LB3 LB2>;
+            bindings = <&kp N8>;
+            layers = <0>;
+        };
+        combo_9 {
+            COMBO
+            key-positions = <LB2 LB1>;
+            bindings = <&kp N9>;
+            layers = <0>;
+        };
+        combo_0 {
+            COMBO
+            key-positions = <LB1 LB0>;
+            bindings = <&kp N0>;
+            layers = <0>;
+        };
+
+        combo_colon {
+            COMBO
+            key-positions = <RM1 RM2>;
+            bindings = <&kp COLON>;
+            layers = <0>;
+        };
+        combo_esc {
+            COMBO
+            key-positions = <LM0 LM1>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+    };
+};
 
 / {
     behaviors {
-        hmls: home_row_mod_left_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_R THUMBS_R THUMBS_L>;
-            hold-trigger-on-release;
-        };
-        hmrs: home_row_mod_right_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <170>;
-            bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <KEYS_L THUMBS_R THUMBS_L>;
-            hold-trigger-on-release;
-        };
         hml: home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <130>;
-            bindings = <&kp>, <&kp>;
+            HOMEROW
             hold-trigger-key-positions = <KEYS_R THUMBS_R THUMBS_L>;
-            hold-trigger-on-release;
         };
         hmr: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <170>;
-            bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <130>;
+            HOMEROW
             hold-trigger-key-positions = <KEYS_L THUMBS_R THUMBS_L>;
-            hold-trigger-on-release;
+        };
+        td_enter: tap_dance_enter {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt 1 ENTER>, <&sl 1>;
+        };
+        td_tab: tap_dance_tab {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt 2 TAB>, <&sl 2>;
         };
     };
     conditional_layers {
@@ -100,7 +169,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &lt 2 ESC   &kp BSPC     &kp SPACE  &lt 1 ENTER
+                                            &td_tab     &kp BSPC     &kp SPACE  &lt 1 ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -109,15 +178,15 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ INSERT   │  1       │  2       │  3       │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  ;       │
-            &kp INS    &kp N1     &kp N2     &kp N3     &trans         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp SEMI
+            &caps_word &kp N1     &kp N2     &kp N3     &trans         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  :       │
             &kp TAB    &kp N4     &kp N5     &kp N6     &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &kp COLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
-           &caps_word  &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans
+            &kp LSHFT &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &trans     &trans         &trans     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -134,7 +203,7 @@
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
             &trans     &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &trans    &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
