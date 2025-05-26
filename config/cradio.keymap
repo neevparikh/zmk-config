@@ -10,6 +10,10 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 #include <dt-bindings/zmk/pointing.h>
 
+
+#define BTLD &bootloader
+#define MM(dir) &mmv MOVE_##dir
+#define MS(dir) &msc SCRL_##dir
 #define THUMBS_L LH1 LH0 
 #define THUMBS_R RH0 RH1
 #define KEYS_L \
@@ -48,94 +52,174 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_1 {
+        combo_lt_4 {
             COMBO
             key-positions = <LT4 LT3>;
             bindings = <&kp N1>;
             layers = <0>;
         };
-        combo_2 {
+        combo_lt_3 {
             COMBO
             key-positions = <LT3 LT2>;
             bindings = <&kp N2>;
             layers = <0>;
         };
-        combo_3 {
+        combo_lt_2 {
             COMBO
             key-positions = <LT2 LT1>;
             bindings = <&kp N3>;
             layers = <0>;
         };
-        combo_4 {
+        combo_lt_1 {
+            COMBO
+            key-positions = <LT0 LT1>;
+            bindings = <&kp LBKT>;
+            layers = <0>;
+        };
+
+        combo_lm_4 {
             COMBO
             key-positions = <LM4 LM3>;
             bindings = <&kp N4>;
             layers = <0>;
         };
-        combo_5 {
+        combo_lm_3 {
             COMBO
             key-positions = <LM3 LM2>;
             bindings = <&kp N5>;
             layers = <0>;
         };
-        combo_6 {
+        combo_lm_2 {
+            COMBO
+            key-positions = <LM1 LM2>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+        combo_lm_1 {
             COMBO
             key-positions = <LM1 LM0>;
             bindings = <&kp N6>;
             layers = <0>;
         };
-        combo_7 {
+        combo_lb_4 {
             COMBO
             key-positions = <LB4 LB3>;
             bindings = <&kp N7>;
             layers = <0>;
         };
-        combo_8 {
+        combo_lb_3 {
             COMBO
             key-positions = <LB3 LB2>;
             bindings = <&kp N8>;
             layers = <0>;
         };
-        combo_9 {
+        combo_lb_2 {
             COMBO
             key-positions = <LB2 LB1>;
             bindings = <&kp N9>;
             layers = <0>;
         };
-        combo_0 {
+        combo_lb_1 {
             COMBO
             key-positions = <LB1 LB0>;
             bindings = <&kp N0>;
             layers = <0>;
         };
 
-        combo_colon {
+        combo_rt_1 {
+            COMBO
+            key-positions = <RT0 RT1>;
+            bindings = <&kp RBKT>;
+            layers = <0>;
+        };
+        combo_rt_2 {
+            COMBO
+            key-positions = <RT1 RT2>;
+            bindings = <&kp LPAR>;
+            layers = <0>;
+        };
+        combo_rt_3 {
+            COMBO
+            key-positions = <RT2 RT3>;
+            bindings = <&kp RPAR>;
+            layers = <0>;
+        };
+        combo_rt_4 {
+            COMBO
+            key-positions = <RT3 RT4>;
+            bindings = <&kp PRCNT>;
+            layers = <0>;
+        };
+        combo_rm_1 {
+            COMBO
+            key-positions = <RM0 RM1>;
+            bindings = <&kp ASTRK>;
+            layers = <0>;
+        };
+        combo_rm_2 {
             COMBO
             key-positions = <RM1 RM2>;
             bindings = <&kp COLON>;
             layers = <0>;
         };
-        combo_tab {
+        combo_rm_3 {
             COMBO
             key-positions = <RM2 RM3>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
-        combo_esc {
+        combo_rm_4 {
             COMBO
-            key-positions = <LM1 LM2>;
-            bindings = <&kp ESC>;
+            key-positions = <RM3 RM4>;
+            bindings = <&kp PLUS>;
+            layers = <0>;
+        };
+        combo_rb_1 {
+            COMBO
+            key-positions = <RB0 RB1>;
+            bindings = <&kp HASH>;
+            layers = <0>;
+        };
+        combo_rb_2 {
+            COMBO
+            key-positions = <RB1 RB2>;
+            bindings = <&kp UNDER>;
+            layers = <0>;
+        }; 
+        combo_rb_3 {
+            COMBO
+            key-positions = <RB2 RB3>;
+            bindings = <&kp EQUAL>;
+            layers = <0>;
+        };
+        combo_rb_4 {
+            COMBO
+            key-positions = <RB3 RB4>;
+            bindings = <&kp MINUS>;
+            layers = <0>;
+        };
+
+        /* combo_lh_1 { */
+        /*     COMBO */
+        /*     key-positions = <LH0 LH1>; */
+        /*     bindings = <&kp DQUOT>; */
+        /*     layers = <0>; */
+        /* }; */
+        combo_rh_1 {
+            COMBO
+            key-positions = <RH0 RH1>;
+            bindings = <&sl 1>;
             layers = <0>;
         };
 
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //          (1)        (2)        (3)        ( )                       ( )        ( )        ( )        ( )       
+        //          (1)        (2)        (3)        ([)                       (])        (()        ())        (%)       
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          (4)        (5)       (esc)       (6)                       ( )      (colon)     (tab)       ( )  
+        //          (4)        (5)       (esc)       (6)                       (*)      (colon)     (tab)       (+)  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          (7)        (8)        (9)        (0)                       ( )        ( )        ( )        ( )        
+        //          (7)        (8)        (9)        (0)                       (#)        (_)        (=)        (-)        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //
+        //                                           ( )                      (sl1)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
     };
 };
@@ -198,16 +282,16 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │   ]      │   │  ^       │  (       │  )       │          │  ~       │
-            &caps_word &kp LBKT   &kp LBRC   &kp RBRC   &kp RBKT        &kp CARET  &kp LPAR   &kp RPAR  &trans     &kp TILDE
+        //│    ^     │    ;     │     {    │     }    │          │   │     ~    │     (    │  )       │  [       │     ]    │ 
+            &kp CARET &kp SEMI   &kp LBRC   &kp RBRC   &caps_word     &kp TILDE  &kp LPAR   &kp RPAR   &kp LBKT   &kp RBKT     
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
             &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp TAB
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &kp LSHFT  &trans     &trans     &trans     &kp SEMI       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp GRAVE
+            &kp LSHFT  &trans     &trans     &trans    &trans          &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp GRAVE
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans    &trans         &trans     &trans
+                                             &trans    &trans          &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -215,14 +299,14 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
+        //│ RESET    │          │          │          │          │   │          │          │          │          │  RESET   │
+           &sys_reset &trans     &trans     &trans     &trans         &mkp MCLK  &mkp LCLK &mkp RCLK   &trans     &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &msc SCRL_UP &msc SCRL_DOWN &trans &bootloader
+        //│BOOTLOADER│          │          │          │          │   │          │          │          │          │BOOTLOADER│
+           BTLD       MM(LEFT)   MM(UP)     MM(DOWN)    MM(RIGHT)     MS(LEFT)   MS(UP)     MS(DOWN)   MS(RIGHT)   BTLD
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
+        //│          │ CLEAR BT │PROFILE 2 │PROFILE 1 │PROFILE 0 │   │          │          │          │          │          │
+           &trans &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
