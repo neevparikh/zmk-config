@@ -73,50 +73,50 @@
         combo_lt_1 {
             COMBO
             key-positions = <LT0 LT1>;
-            bindings = <&kp LBKT>;
+            bindings = <&kp N4>;
             layers = <0>;
         };
 
         combo_lm_4 {
             COMBO
             key-positions = <LM4 LM3>;
-            bindings = <&kp N4>;
+            bindings = <&sk LSHIFT>;
             layers = <0>;
         };
         combo_lm_3 {
             COMBO
             key-positions = <LM3 LM2>;
-            bindings = <&kp N5>;
+            bindings = <&sk LCTRL>;
             layers = <0>;
         };
         combo_lm_2 {
             COMBO
             key-positions = <LM1 LM2>;
-            bindings = <&kp ESC>;
+            bindings = <&kp LGUI>;
             layers = <0>;
         };
         combo_lm_1 {
             COMBO
             key-positions = <LM1 LM0>;
-            bindings = <&kp N6>;
+            bindings = <&sk LALT>;
             layers = <0>;
         };
-        combo_lb_4 {
-            COMBO
-            key-positions = <LB4 LB3>;
-            bindings = <&kp N7>;
-            layers = <0>;
-        };
+        /* combo_lb_4 { */
+        /*     COMBO */
+        /*     key-positions = <LB4 LB3>; */
+        /*     bindings = <&kp N7>; */
+        /*     layers = <0>; */
+        /* }; */
         combo_lb_3 {
             COMBO
             key-positions = <LB3 LB2>;
-            bindings = <&kp N8>;
+            bindings = <&kp N9>;
             layers = <0>;
         };
         combo_lb_2 {
             COMBO
             key-positions = <LB2 LB1>;
-            bindings = <&kp N9>;
+            bindings = <&kp ESC>;
             layers = <0>;
         };
         combo_lb_1 {
@@ -129,75 +129,77 @@
         combo_rt_1 {
             COMBO
             key-positions = <RT0 RT1>;
-            bindings = <&kp RBKT>;
+            bindings = <&kp N5>;
             layers = <0>;
         };
         combo_rt_2 {
             COMBO
             key-positions = <RT1 RT2>;
-            bindings = <&kp LPAR>;
+            bindings = <&kp N6>;
             layers = <0>;
         };
         combo_rt_3 {
             COMBO
             key-positions = <RT2 RT3>;
-            bindings = <&kp RPAR>;
+            bindings = <&kp N7>;
             layers = <0>;
         };
         combo_rt_4 {
             COMBO
             key-positions = <RT3 RT4>;
-            bindings = <&kp PRCNT>;
+            bindings = <&kp N8>;
             layers = <0>;
         };
+
         combo_rm_1 {
             COMBO
             key-positions = <RM0 RM1>;
-            bindings = <&kp ASTRK>;
+            bindings = <&sk RALT>;
             layers = <0>;
         };
         combo_rm_2 {
             COMBO
             key-positions = <RM1 RM2>;
-            bindings = <&kp COLON>;
+            bindings = <&sk RGUI>;
             layers = <0>;
         };
         combo_rm_3 {
             COMBO
             key-positions = <RM2 RM3>;
-            bindings = <&kp TAB>;
+            bindings = <&sk RCTRL>;
             layers = <0>;
         };
         combo_rm_4 {
             COMBO
             key-positions = <RM3 RM4>;
-            bindings = <&kp PLUS>;
+            bindings = <&sk RSHIFT>;
             layers = <0>;
         };
+
         combo_rb_1 {
             COMBO
             key-positions = <RB0 RB1>;
-            bindings = <&kp HASH>;
+            bindings = <&kp TAB>;
             layers = <0>;
         };
         combo_rb_2 {
             COMBO
             key-positions = <RB1 RB2>;
-            bindings = <&kp UNDER>;
+            bindings = <&kp COLON>;
             layers = <0>;
         }; 
-        combo_rb_3 {
-            COMBO
-            key-positions = <RB2 RB3>;
-            bindings = <&kp EQUAL>;
-            layers = <0>;
-        };
-        combo_rb_4 {
-            COMBO
-            key-positions = <RB3 RB4>;
-            bindings = <&kp MINUS>;
-            layers = <0>;
-        };
+        /* combo_rb_3 { */
+        /*     COMBO */
+        /*     key-positions = <RB2 RB3>; */
+        /*     bindings = <&kp EQUAL>; */
+        /*     layers = <0>; */
+        /* }; */
+        /* combo_rb_4 { */
+        /*     COMBO */
+        /*     key-positions = <RB3 RB4>; */
+        /*     bindings = <&kp MINUS>; */
+        /*     layers = <0>; */
+        /* }; */
 
         /* combo_lh_1 { */
         /*     COMBO */
@@ -213,11 +215,11 @@
         };
 
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //          (1)        (2)        (3)        ([)                       (])        (()        ())        (%)       
+        //          (1)        (2)        (3)        (4)                       (5)        (6)        (7)        (8)       
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          (4)        (5)       (esc)       (6)                       (*)      (colon)     (tab)       (+)  
+        //         (sft)      (ctr)      (cmd)      (alt)                     (alt)      (cmd)      (ctr)      (sft)  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          (7)        (8)        (9)        (0)                       (#)        (_)        (=)        (-)        
+        //          ( )        (9)       (esc)       (0)                      (tab)     (colon)      ( )        ( )        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                           ( )                      (sl1)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -252,7 +254,7 @@
             &kp Q     &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
-            HRML(A,        S,         D,         F)     &kp G          &kp H      HRMR(J,        K,         L,        SQT)
+            &kp A      &kp S      &kp D      &kp F     &kp G          &kp H      &kp J      &kp K      &kp L      &kp QUOT 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
@@ -265,11 +267,11 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ INSERT   │  1       │  2       │  3       │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  ;       │
+        //│ INSERT   │  1       │  2       │  3       │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │          │
             &trans    &kp N1     &kp N2     &kp N3      &trans        &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  :       │
-            &kp TAB    &kp N4     &kp N5     &kp N6     &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &kp COLON
+        //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │          │
+            &kp TAB    &kp N4     &kp N5     &kp N6     &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
             &kp LSHFT &kp N7     &kp N8     &kp N9      &kp N0         &trans     &trans     &trans     &trans     &trans
