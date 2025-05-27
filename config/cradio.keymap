@@ -70,12 +70,12 @@
             layers = <0>;
         };
 
-        /* combo_lm_4 { */
-        /*     COMBO */
-        /*     key-positions = <LM4 LM3>; */
-        /*     bindings = <&sk LSHIFT>; */
-        /*     layers = <0>; */
-        /* }; */
+        combo_lm_4 {
+            COMBO
+            key-positions = <LM4 LM3>;
+            bindings = <&sk LSHIFT>;
+            layers = <0>;
+        };
         combo_lm_3 {
             COMBO
             key-positions = <LM3 LM2>;
@@ -94,12 +94,12 @@
             bindings = <&sk LALT>;
             layers = <0>;
         };
-        combo_lb_4 {
-            COMBO
-            key-positions = <LB4 LB3>;
-            bindings = <&kp N0>;
-            layers = <0>;
-        };
+        /* combo_lb_4 { */
+        /*     COMBO */
+        /*     key-positions = <LB4 LB3>; */
+        /*     bindings = <&kp N0>; */
+        /*     layers = <0>; */
+        /* }; */
         combo_lb_3 {
             COMBO
             key-positions = <LB3 LB2>;
@@ -109,13 +109,13 @@
         combo_lb_2 {
             COMBO
             key-positions = <LB2 LB1>;
-            bindings = <&kp ESC>;
+            bindings = <&sk LSHIFT>;
             layers = <0>;
         };
         combo_lb_1 {
             COMBO
             key-positions = <LB1 LB0>;
-            bindings = <&sk LSHIFT>;
+            bindings = <&kp N0>;
             layers = <0>;
         };
 
@@ -162,31 +162,31 @@
             bindings = <&sk RCTRL>;
             layers = <0>;
         };
-        /* combo_rm_4 { */
-        /*     COMBO */
-        /*     key-positions = <RM3 RM4>; */
-        /*     bindings = <&sk RSHIFT>; */
-        /*     layers = <0>; */
-        /* }; */
+        combo_rm_4 {
+            COMBO
+            key-positions = <RM3 RM4>;
+            bindings = <&caps_word>;
+            layers = <0>;
+        };
 
         combo_rb_1 {
             COMBO
             key-positions = <RB0 RB1>;
-            bindings = <&sk RSHIFT>;
+            bindings = <&kp TAB>;
             layers = <0>;
         };
         combo_rb_2 {
             COMBO
             key-positions = <RB1 RB2>;
-            bindings = <&kp COLON>;
+            bindings = <&sk RSHIFT>;
             layers = <0>;
         }; 
-        combo_rb_3 {
-            COMBO
-            key-positions = <RB2 RB3>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
+        /* combo_rb_3 { */
+        /*     COMBO */
+        /*     key-positions = <RB2 RB3>; */
+        /*     bindings = <&kp TAB>; */
+        /*     layers = <0>; */
+        /* }; */
         /* combo_rb_4 { */
         /*     COMBO */
         /*     key-positions = <RB3 RB4>; */
@@ -207,12 +207,6 @@
             layers = <0 1>;
         };
 
-        combo_capsword {
-            COMBO
-            key-positions = <RM4 LM4>;
-            bindings = <&caps_word>;
-            layers = <0>;
-        };
         combo_shift_cmd_l {
             COMBO
             key-positions = <LM4 LM1>;
@@ -225,17 +219,43 @@
             bindings = <&sk RS(RGUI)>;
             layers = <0>;
         };
+        combo_shift_alt_l {
+            COMBO
+            key-positions = <LM4 LM0>;
+            bindings = <&sk LS(LALT)>;
+            layers = <0>;
+        };
+        combo_shift_alt_r {
+            COMBO
+            key-positions = <RM4 RM0>;
+            bindings = <&sk RS(RALT)>;
+            layers = <0>;
+        };
+
+        combo_esc {
+            COMBO
+            key-positions = <LM3 LM1>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+        combo_colon {
+            COMBO
+            key-positions = <RM3 RM1>;
+            bindings = <&kp COLON>;
+            layers = <0>;
+        };
 
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //          (1)        (2)        (3)        (4)                       (5)        (6)        (7)        (8)       
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          ( )       (ctr)      (cmd)      (alt)                     (alt)      (cmd)      (ctr)       ( )  
+        //         (sft)       (ctr)      (cmd)      (alt)                     (alt)      (cmd)      (ctr)      (cpw)  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          (0)        (9)       (esc)      (sft)                     (sft)     (colon)     (tab)       ( )        
+        //          ( )        (9)       (sft)       (0)                      (tab)      (sft)       ( )        ( )        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                           ( )                     (tog 1)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-        // a': caps word
+        // sf: esc
+        // jl: colon
     };
 };
 
