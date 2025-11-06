@@ -30,7 +30,7 @@
 #define HRMR(k1,k2,k3,k4) &hmr RGUI k1  &hmr RALT k2  &hmr RCTRL k3  &hmr RSHFT k4
 
 #define COMBO \
-            timeout-ms = <25>;\
+            timeout-ms = <35>;\
             require-prior-idle-ms = <145>;
 #define COMBOLONGER \
             timeout-ms = <35>;\
