@@ -32,6 +32,9 @@
 #define COMBO \
             timeout-ms = <25>;\
             require-prior-idle-ms = <145>;
+#define COMBOLONGER \
+            timeout-ms = <35>;\
+            require-prior-idle-ms = <145>;
 
 &lt {
   flavor = "tap-preferred";
@@ -77,21 +80,21 @@
             layers = <0>;
         };
         combo_lm_3 {
-            COMBO
+            COMBOLONGER
             key-positions = <LM3 LM2>;
-            bindings = <&sk LCTRL>;
+            bindings = <&sk LALT>;
             layers = <0>;
         };
         combo_lm_2 {
-            COMBO
+            COMBOLONGER
             key-positions = <LM1 LM2>;
             bindings = <&sk LGUI>;
             layers = <0>;
         };
         combo_lm_1 {
-            COMBO
+            COMBOLONGER
             key-positions = <LM1 LM0>;
-            bindings = <&sk LALT>;
+            bindings = <&sk LCTRL>;
             layers = <0>;
         };
         /* combo_lb_4 { */
@@ -107,7 +110,7 @@
             layers = <0>;
         };
         combo_lb_2 {
-            COMBO
+            COMBOLONGER
             key-positions = <LB2 LB1>;
             bindings = <&sk LSHIFT>;
             layers = <0>;
@@ -145,21 +148,21 @@
         };
 
         combo_rm_1 {
-            COMBO
+            COMBOLONGER
             key-positions = <RM0 RM1>;
-            bindings = <&sk RALT>;
+            bindings = <&sk RCTRL>;
             layers = <0>;
         };
         combo_rm_2 {
-            COMBO
+            COMBOLONGER
             key-positions = <RM1 RM2>;
             bindings = <&sk RGUI>;
             layers = <0>;
         };
         combo_rm_3 {
-            COMBO
+            COMBOLONGER
             key-positions = <RM2 RM3>;
-            bindings = <&sk RCTRL>;
+            bindings = <&sk RALT>;
             layers = <0>;
         };
         combo_rm_4 {
@@ -170,13 +173,13 @@
         };
 
         combo_rb_1 {
-            COMBO
+            COMBOLONGER
             key-positions = <RB0 RB1>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
         combo_rb_2 {
-            COMBO
+            COMBOLONGER
             key-positions = <RB1 RB2>;
             bindings = <&sk RSHIFT>;
             layers = <0>;
@@ -195,18 +198,19 @@
         /* }; */
 
         /* combo_lh_1 { */
-        /*     COMBO */
+        /*     COMBOLONGER */
+        /*     slow-release; */
         /*     key-positions = <LH0 LH1>; */
-        /*     bindings = <&kp DQUOT>; */
+        /*     bindings = <&sk LSHIFT>; */
         /*     layers = <0>; */
         /* }; */
-        combo_rh_1 {
-            COMBO
-            key-positions = <RH0 RH1>;
-            bindings = <&tog 1>;
-            layers = <0 1>;
-        };
-
+        
+        /* combo_rh_1 { */
+        /*     COMBOLONGER */
+        /*     key-positions = <RH0 RH1>; */
+        /*     bindings = <&tog 1>; */
+        /*     layers = <0 1>; */
+        /* }; */
         combo_shift_cmd_l {
             COMBO
             key-positions = <LM4 LM1>;
@@ -221,14 +225,26 @@
         };
         combo_shift_alt_l {
             COMBO
-            key-positions = <LM4 LM0>;
+            key-positions = <LM4 LM2>;
             bindings = <&sk LS(LALT)>;
             layers = <0>;
         };
         combo_shift_alt_r {
             COMBO
-            key-positions = <RM4 RM0>;
+            key-positions = <RM4 RM2>;
             bindings = <&sk RS(RALT)>;
+            layers = <0>;
+        };
+        combo_shift_l {
+            COMBO
+            key-positions = <LM4 LM0>;
+            bindings = <&sk LSHIFT>;
+            layers = <0>;
+        };
+        combo_shift_r {
+            COMBO
+            key-positions = <RM4 RM0>;
+            bindings = <&sk RSHIFT>;
             layers = <0>;
         };
 
@@ -244,11 +260,29 @@
             bindings = <&kp COLON>;
             layers = <0>;
         };
-
+        combo_caps_word {
+            COMBOLONGER
+            key-positions = <RM0 LM0>;
+            bindings = <&caps_word>;
+            layers = <0>;
+        };
+        combo_hshft {
+            COMBOLONGER
+            slow-release;
+            key-positions = <LH0 RH0>;
+            bindings = <&sk LSHIFT>;
+            layers = <0>;
+        };
+        combo_num_toggle {
+            COMBOLONGER
+            key-positions = <LM1 RH1>;
+            bindings = <&tog 1>;
+            layers = <0 1>;
+        };
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //          (1)        (2)        (3)        (4)                       (5)        (6)        (7)        (8)       
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //         (sft)       (ctr)      (cmd)      (alt)                     (alt)      (cmd)      (ctr)      (cpw)  
+        //         (sft)      (alt)      (cmd)      (ctr)                     (ctr)      (cmd)      (alt)      (cpw)  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //          ( )        (9)       (sft)       (0)                      (tab)      (sft)       ( )        ( )        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
@@ -256,6 +290,11 @@
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
         // sf: esc
         // jl: colon
+        // j' and fa: cmd+shift 
+        // k' and da: alt+shift
+        // h' and ga: shift 
+        // outer thumbs: shift 
+        // hg: caps word
     };
 };
 
@@ -309,8 +348,8 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    ^     │    ;     │     {    │     }    │          │   │     ~    │     (    │  )       │  [       │     ]    │ 
-            &kp CARET &kp SEMI   &kp LBRC   &kp RBRC   &caps_word     &kp TILDE  &kp LPAR   &kp RPAR   &kp LBKT   &kp RBKT     
+        //│    ^     │    ;     │     {    │     }    │          │   │     [    │     (    │  )       │  ]       │     ~    │ 
+            &kp CARET &kp SEMI   &kp LBRC   &kp RBRC   &caps_word      &kp LBKT   &kp LPAR   &kp RPAR    &kp RBKT  &kp TILDE   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
             &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp TAB
