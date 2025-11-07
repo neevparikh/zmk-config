@@ -7,7 +7,7 @@ uv run west build -s app -d "build/cradio_right" -b "nice_nano_v2"  -- -DZMK_CON
 cd ..
 rm -rf firmware
 mkdir firmware
-cp zmk/build/corne_left/zephyr/zmk.uf2 firmware/corne_left.uf2
-cp zmk/build/corne_right/zephyr/zmk.uf2 firmware/corne_right.uf2
+# cp zmk/build/corne_left/zephyr/zmk.uf2 firmware/corne_left.uf2
+# cp zmk/build/corne_right/zephyr/zmk.uf2 firmware/corne_right.uf2
 cp zmk/build/cradio_left/zephyr/zmk.uf2 firmware/cradio_left.uf2
 cp zmk/build/cradio_right/zephyr/zmk.uf2 firmware/cradio_right.uf2
