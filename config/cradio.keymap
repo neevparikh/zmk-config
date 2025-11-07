@@ -32,9 +32,6 @@
 #define COMBO \
             timeout-ms = <35>;\
             require-prior-idle-ms = <145>;
-#define COMBOLONGER \
-            timeout-ms = <35>;\
-            require-prior-idle-ms = <145>;
 
 &lt {
   flavor = "tap-preferred";
@@ -73,26 +70,26 @@
             layers = <0>;
         };
 
-        combo_lm_4 {
-            COMBO
-            key-positions = <LM4 LM3>;
-            bindings = <&sk LSHIFT>;
-            layers = <0>;
-        };
+        /* combo_lm_4 { */
+        /*     COMBO */
+        /*     key-positions = <LM4 LM3>; */
+        /*     bindings = <&caps_word>; */
+        /*     layers = <0>; */
+        /* }; */
         combo_lm_3 {
-            COMBOLONGER
+            COMBO
             key-positions = <LM3 LM2>;
             bindings = <&sk LALT>;
             layers = <0>;
         };
         combo_lm_2 {
-            COMBOLONGER
+            COMBO
             key-positions = <LM1 LM2>;
             bindings = <&sk LGUI>;
             layers = <0>;
         };
         combo_lm_1 {
-            COMBOLONGER
+            COMBO
             key-positions = <LM1 LM0>;
             bindings = <&sk LCTRL>;
             layers = <0>;
@@ -103,16 +100,16 @@
         /*     bindings = <&kp N0>; */
         /*     layers = <0>; */
         /* }; */
-        combo_lb_3 {
-            COMBO
-            key-positions = <LB3 LB2>;
-            bindings = <&kp N9>;
-            layers = <0>;
-        };
+        /* combo_lb_3 { */
+        /*     COMBO */
+        /*     key-positions = <LB3 LB2>; */
+        /*     bindings = <&kp N9>; */
+        /*     layers = <0>; */
+        /* }; */
         combo_lb_2 {
-            COMBOLONGER
+            COMBO
             key-positions = <LB2 LB1>;
-            bindings = <&sk LSHIFT>;
+            bindings = <&kp N9>;
             layers = <0>;
         };
         combo_lb_1 {
@@ -148,42 +145,42 @@
         };
 
         combo_rm_1 {
-            COMBOLONGER
+            COMBO
             key-positions = <RM0 RM1>;
             bindings = <&sk RCTRL>;
             layers = <0>;
         };
         combo_rm_2 {
-            COMBOLONGER
+            COMBO
             key-positions = <RM1 RM2>;
             bindings = <&sk RGUI>;
             layers = <0>;
         };
         combo_rm_3 {
-            COMBOLONGER
+            COMBO
             key-positions = <RM2 RM3>;
             bindings = <&sk RALT>;
             layers = <0>;
         };
-        combo_rm_4 {
-            COMBO
-            key-positions = <RM3 RM4>;
-            bindings = <&caps_word>;
-            layers = <0>;
-        };
+        /* combo_rm_4 { */
+        /*     COMBO */
+        /*     key-positions = <RM3 RM4>; */
+        /*     bindings = <&caps_word>; */
+        /*     layers = <0>; */
+        /* }; */
 
         combo_rb_1 {
-            COMBOLONGER
+            COMBO
             key-positions = <RB0 RB1>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
-        combo_rb_2 {
-            COMBOLONGER
-            key-positions = <RB1 RB2>;
-            bindings = <&sk RSHIFT>;
-            layers = <0>;
-        }; 
+        /* combo_rb_2 { */
+        /*     COMBO */
+        /*     key-positions = <RB1 RB2>; */
+        /*     bindings = <&sk RSHIFT>; */
+        /*     layers = <0>; */
+        /* }; */ 
         /* combo_rb_3 { */
         /*     COMBO */
         /*     key-positions = <RB2 RB3>; */
@@ -198,7 +195,7 @@
         /* }; */
 
         /* combo_lh_1 { */
-        /*     COMBOLONGER */
+        /*     COMBO */
         /*     slow-release; */
         /*     key-positions = <LH0 LH1>; */
         /*     bindings = <&sk LSHIFT>; */
@@ -206,7 +203,7 @@
         /* }; */
         
         /* combo_rh_1 { */
-        /*     COMBOLONGER */
+        /*     COMBO */
         /*     key-positions = <RH0 RH1>; */
         /*     bindings = <&tog 1>; */
         /*     layers = <0 1>; */
@@ -261,30 +258,38 @@
             layers = <0>;
         };
         combo_caps_word {
-            COMBOLONGER
+            COMBO
             key-positions = <RM0 LM0>;
             bindings = <&caps_word>;
             layers = <0>;
         }; 
         combo_hshft {
-            COMBOLONGER
+            COMBO
             slow-release;
             key-positions = <LH0 RH0>;
             bindings = <&sk LSHIFT>;
             layers = <0>;
         };
-        combo_num_toggle {
-            COMBOLONGER
-            key-positions = <LM1 RH1>;
-            bindings = <&tog 1>;
-            layers = <0 1>;
+        combo_lshft {
+            COMBO
+            slow-release;
+            key-positions = <LH0 LM4>;
+            bindings = <&sk LSHIFT>;
+            layers = <0>;
+        };
+        combo_rshft {
+            COMBO
+            slow-release;
+            key-positions = <RH0 RM4>;
+            bindings = <&sk RSHIFT>;
+            layers = <0>;
         };
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //          (1)        (2)        (3)        (4)                       (5)        (6)        (7)        (8)       
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //         (sft)      (alt)      (cmd)      (ctr)                     (ctr)      (cmd)      (alt)      (cpw)  
+        //         (cpw)      (alt)      (cmd)      (ctr)                     (ctr)      (cmd)      (alt)      (cpw)  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          ( )        (9)       (sft)       (0)                      (tab)      (sft)       ( )        ( )        
+        //          ( )        ( )        (9)        (0)                      (tab)       ( )        ( )        ( )        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                           ( )                       ( )
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -293,7 +298,7 @@
         // j' and fa: cmd+shift 
         // k' and da: alt+shift
         // h' and ga: ctrl+shift 
-        // outer thumbs: shift 
+        // outer thumbs and thumb+a or thumb+': shift 
         // hg: caps word
     };
 };
@@ -340,7 +345,7 @@
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
             &kp LSHFT &kp N7     &kp N8     &kp N9      &kp N0         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &kp ENTER
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -369,7 +374,7 @@
            &sys_reset &trans     &trans     &trans     &trans         &mkp MCLK  &mkp LCLK &mkp RCLK   &trans     &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │          │   │          │          │          │          │BOOTLOADER│
-           BTLD       MS(LEFT)   MS(UP)     MS(DOWN)   MS(RIGHT)      MM(LEFT)   MM(UP)     MM(DOWN)    MM(RIGHT) BTLD
+           BTLD       MS(LEFT)   MS(UP)     MS(DOWN)   MS(RIGHT)      MM(LEFT)   MM(DOWN)   MM(UP)    MM(RIGHT)   BTLD
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │ CLEAR BT │PROFILE 2 │PROFILE 1 │PROFILE 0 │   │          │          │          │          │          │
            &trans &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &trans     &trans     &trans     &trans     &trans
