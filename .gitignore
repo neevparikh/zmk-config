@@ -6,3 +6,4 @@ modules
 zephyr
 firmware
 zmk-helpers
+.DS_Store

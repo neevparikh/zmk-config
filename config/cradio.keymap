@@ -235,16 +235,16 @@
             bindings = <&sk RS(RALT)>;
             layers = <0>;
         };
-        combo_shift_l {
+        combo_shift_ctrl_l {
             COMBO
             key-positions = <LM4 LM0>;
-            bindings = <&sk LSHIFT>;
+            bindings = <&sk LS(LCTRL)>;
             layers = <0>;
         };
-        combo_shift_r {
+        combo_shift_ctrl_r {
             COMBO
             key-positions = <RM4 RM0>;
-            bindings = <&sk RSHIFT>;
+            bindings = <&sk RS(RCTRL)>;
             layers = <0>;
         };
 
@@ -265,7 +265,7 @@
             key-positions = <RM0 LM0>;
             bindings = <&caps_word>;
             layers = <0>;
-        };
+        }; 
         combo_hshft {
             COMBOLONGER
             slow-release;
@@ -286,13 +286,13 @@
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //          ( )        (9)       (sft)       (0)                      (tab)      (sft)       ( )        ( )        
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                           ( )                     (tog 1)
+        //                                           ( )                       ( )
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
         // sf: esc
         // jl: colon
         // j' and fa: cmd+shift 
         // k' and da: alt+shift
-        // h' and ga: shift 
+        // h' and ga: ctrl+shift 
         // outer thumbs: shift 
         // hg: caps word
     };
@@ -369,7 +369,7 @@
            &sys_reset &trans     &trans     &trans     &trans         &mkp MCLK  &mkp LCLK &mkp RCLK   &trans     &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │          │   │          │          │          │          │BOOTLOADER│
-           BTLD       MM(LEFT)   MM(UP)     MM(DOWN)    MM(RIGHT)     MS(LEFT)   MS(UP)     MS(DOWN)   MS(RIGHT)   BTLD
+           BTLD       MS(LEFT)   MS(UP)     MS(DOWN)   MS(RIGHT)      MM(LEFT)   MM(UP)     MM(DOWN)    MM(RIGHT) BTLD
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │ CLEAR BT │PROFILE 2 │PROFILE 1 │PROFILE 0 │   │          │          │          │          │          │
            &trans &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &trans     &trans     &trans     &trans     &trans
