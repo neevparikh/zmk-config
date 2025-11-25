@@ -322,7 +322,7 @@
             layers = <0>;
         };
         combo_caps_word {
-            timeout-ms = <40>;
+            timeout-ms = <45>;
             require-prior-idle-ms = <145>;
             key-positions = <RM0 LM0>;
             bindings = <&caps_word>;
