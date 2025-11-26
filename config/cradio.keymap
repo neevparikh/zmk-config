@@ -34,7 +34,7 @@
 #define MEDIUM 30
 
 &lt {
-  flavor = "tap-preferred";
+  flavor = "balanced";
   tapping-term-ms = <280>;
 };
 
@@ -57,6 +57,22 @@
             require-prior-idle-ms = <145>;
             key-positions = <RM2 RM1>;
             bindings = <&kp COLON>;
+            layers = <0>;
+        };
+        combo_lctl {
+            timeout-ms = <SLOW>;
+            require-prior-idle-ms = <145>;
+            slow-release;
+            key-positions = <LH0 LM3>;
+            bindings = <&sk LCTRL>;
+            layers = <0>;
+        };
+        combo_rctl {
+            timeout-ms = <SLOW>;
+            require-prior-idle-ms = <145>;
+            slow-release;
+            key-positions = <RH0 RM3>;
+            bindings = <&sk RCTRL>;
             layers = <0>;
         };
         combo_lshft {
@@ -119,7 +135,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &sl 2     &kp BSPC       &kp SPACE  &lt 1 ENTER
+                                             &sl 2     &kp BSPC        &kp SPACE   &sl 1 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -128,15 +144,15 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp 1      &kp 2      &kp 3      &kp 4      &kp 5          &kp 6      &kp 7      &kp 8      &kp 9      &kp 0
+          &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9    &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL      &sk RCTRL   &sk RGUI   &sk RALT   &sk RSHIFT &caps_word
+            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL      &sk RCTRL   &sk RGUI   &sk RALT   &sk RSHIFT &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
   &sk LC(LGUI) &sk LA(LGUI) &sk LS(LALT) &sk LS(LGUI) &sk LS(LCTRL) &sk RS(RCTRL) &sk RS(RGUI) &sk RS(RALT) &sk RA(RGUI) &sk RC(RGUI)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans    &trans        &trans     &trans
+                                             &trans     &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -148,7 +164,7 @@
             &kp CARET &kp SEMI   &kp LBRC   &kp RBRC   &caps_word      &kp LBKT   &kp LPAR   &kp RPAR    &kp RBKT  &kp TILDE   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp TAB
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &caps_word
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
             &kp LSHFT  &trans     &trans     &trans    &trans          &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp GRAVE
@@ -165,7 +181,7 @@
        &sys_reset &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &trans   &kp C_VOL_UP  &kp C_VOL_DN &kp C_PP &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     MS(LEFT)   MS(DOWN)    MS(UP)   MS(RIGHT)       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
+            &trans    MS(LEFT)   MS(DOWN)    MS(UP)   MS(RIGHT)       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        &mkp MCLK  &mkp LCLK &mkp RCLK   &trans     BTLD      
