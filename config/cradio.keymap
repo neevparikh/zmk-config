@@ -91,22 +91,6 @@
             bindings = <&sk RSHIFT>;
             layers = <0>;
         };
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //          (1)        (2)        (3)        (4)                       (5)        (6)        (7)        (8)       
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          ( )       (alt)      (cmd)      (ctr)                     (ctr)      (cmd)      (alt)       ( )  
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //          ( )        (9)        (0)       (tab)                     (tab)       ( )        ( )        ( )        
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                           ( )                       ( )
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-        // sf: esc
-        // jl: colon
-        // j' and fa: cmd+shift 
-        // k' and da: alt+shift
-        // h' and ga: ctrl+shift 
-        // outer thumbs and thumb+a or thumb+': shift 
-        // hg: caps word
     };
 };
 
@@ -130,12 +114,12 @@
             &kp Q     &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
-            &kp A      &kp S      &kp D      &kp F     &kp G          &kp H      &kp J      &kp K      &kp L      &kp QUOT 
+            &kp A      &kp S      &kp D      &kp F     &kp G          &kp H      &kp J      &kp K      &kp L      &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &sl 2     &kp BSPC        &kp SPACE   &sl 1 
+                                             &sl 2     &kp BSPC       &kp SPACE   &sl 1 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -147,7 +131,7 @@
           &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9    &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL      &sk RCTRL   &sk RGUI   &sk RALT   &sk RSHIFT &kp ENTER
+            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL      &sk RCTRL   &sk RGUI   &sk RALT   &sk RSHIFT &kp TAB 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
   &sk LC(LGUI) &sk LA(LGUI) &sk LS(LALT) &sk LS(LGUI) &sk LS(LCTRL) &sk RS(RCTRL) &sk RS(RGUI) &sk RS(RALT) &sk RA(RGUI) &sk RC(RGUI)
@@ -160,14 +144,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    ^     │    ;     │     {    │     }    │          │   │     [    │     (    │  )       │  ]       │     ~    │ 
-            &kp CARET &kp SEMI   &kp LBRC   &kp RBRC   &caps_word      &kp LBKT   &kp LPAR   &kp RPAR    &kp RBKT  &kp TILDE   
+        //│    ^     │    ;     │     {    │     }    │    `     │   │     [    │     (    │  )       │  ]       │     ~    │ 
+            &kp CARET &kp SEMI   &kp LBRC   &kp RBRC    &kp GRAVE      &kp LBKT   &kp LPAR   &kp RPAR    &kp RBKT  &kp TILDE   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &caps_word
+        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  ' "     │
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp QUOT  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &kp LSHFT  &trans     &trans     &trans    &trans          &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp GRAVE
+            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &caps_word
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans    &trans          &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
