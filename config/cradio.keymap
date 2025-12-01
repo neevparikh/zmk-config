@@ -96,14 +96,26 @@
 
 / {
     behaviors {
+      tdc: tap_dance_capsword {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 2>, <&caps_word>;
+      };
+      tdl: tap_dance_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 1>, <&sl 3>;
+      };
     };
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    /* conditional_layers { */
+    /*     compatible = "zmk,conditional-layers"; */
+    /*     tri_layer { */
+    /*         if-layers = <1 2>; */
+    /*         then-layer = <3>; */
+    /*     }; */
+    /* }; */
 
     keymap {
         compatible = "zmk,keymap";
@@ -119,7 +131,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &sl 2     &kp BSPC       &kp SPACE   &sl 1 
+                                              &tdc     &kp BSPC       &kp SPACE   &tdl 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -151,7 +163,7 @@
             &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp QUOT  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &kp TAB  &sk LSHIFT   &sk LALT  &sk LGUI   &sk LCTRL       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &caps_word
+           &sk LSHIFT  &kp TAB   &sk LALT  &sk LGUI   &sk LCTRL       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp DQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans    &trans          &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -162,13 +174,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │          │   │          │          │          │          │  RESET   │
-       &sys_reset &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &trans   &kp C_VOL_UP  &kp C_VOL_DN &kp C_PP &sys_reset
+      &sys_reset &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0   &kp C_PP &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans    MS(LEFT)   MS(DOWN)    MS(UP)   MS(RIGHT)       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
+            &sk LALT  &sk LGUI   &mkp RCLK  &mkp LCLK  &mkp MCLK       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        &mkp MCLK  &mkp LCLK &mkp RCLK   &trans     BTLD      
+            BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        MS(LEFT)   MS(DOWN)    MS(UP)   MS(RIGHT)   BTLD      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
