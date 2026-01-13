@@ -29,6 +29,8 @@
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &hml LSHFT k1  &hml LCTRL k2  &hml LALT k3  &hml LGUI k4
 #define HRMR(k1,k2,k3,k4) &hmr RGUI k1  &hmr RALT k2  &hmr RCTRL k3  &hmr RSHFT k4
+
+#define EXTRA_SLOW 40
 #define SLOW 35
 #define FAST 25
 #define MEDIUM 30
@@ -76,7 +78,7 @@
             layers = <0>;
         };
         combo_lshft {
-            timeout-ms = <SLOW>;
+            timeout-ms = <EXTRA_SLOW>;
             require-prior-idle-ms = <145>;
             slow-release;
             key-positions = <LH0 LM4>;
@@ -84,11 +86,19 @@
             layers = <0>;
         };
         combo_rshft {
-            timeout-ms = <SLOW>;
+            timeout-ms = <EXTRA_SLOW>;
             require-prior-idle-ms = <145>;
             slow-release;
             key-positions = <RH0 RM4>;
             bindings = <&sk RSHIFT>;
+            layers = <0>;
+        };
+        combo_layers {
+            timeout-ms = <SLOW>;
+            require-prior-idle-ms = <145>;
+            slow-release;
+            key-positions = <RH1 LH1>;
+            bindings = <&sl 3>;
             layers = <0>;
         };
     };
@@ -99,7 +109,7 @@
       tdc: tap_dance_capsword {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&sl 2>, <&caps_word>;
       };
       tdl: tap_dance_layer {
@@ -148,7 +158,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
   &sk LC(LGUI) &sk LA(LGUI) &sk LS(LALT) &sk LS(LGUI) &sk LS(LCTRL) &sk RS(RCTRL) &sk RS(RGUI) &sk RS(RALT) &sk RA(RGUI) &sk RC(RGUI)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans        &trans     &trans
+                                             &mo 3      &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -165,7 +175,7 @@
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
            &sk LSHIFT  &kp TAB   &sk LALT  &sk LGUI   &sk LCTRL       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp DQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans    &trans          &trans     &trans
+                                             &trans     &trans          &trans     &mo 3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -180,7 +190,7 @@
             &sk LALT  &sk LGUI   &mkp RCLK  &mkp LCLK  &mkp MCLK       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        MS(LEFT)   MS(DOWN)    MS(UP)   MS(RIGHT)   BTLD      
+            BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        MS(LEFT)   MS(UP)    MS(DOWN)   MS(RIGHT)   BTLD      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
