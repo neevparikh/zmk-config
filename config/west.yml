@@ -14,5 +14,10 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
+    - name: zmk-component-raytac-dongle
+      remote: rschenk
+      revision: v0.4
+  self:
+    path: config
   self:
     path: config
