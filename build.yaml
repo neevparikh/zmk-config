@@ -31,8 +31,8 @@ include:
     shield: cradio_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
-  - board: mdbt50q_rx
+  - board: raytac_mdbt50q_rx
     shield: cradio_dongle
 
-  - board: mdbt50q_rx
+  - board: raytac_mdbt50q_rx
     shield: settings_reset
