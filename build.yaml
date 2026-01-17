@@ -20,19 +20,14 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: corne_left
-  - board: nice_nano_v2
-    shield: corne_right
-
-  - board: nice_nano_v2
     shield: cradio_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
     shield: cradio_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
-  - board: raytac_mdbt50q_rx
+  - board: mdbt50q_rx
     shield: cradio_dongle
 
-  - board: raytac_mdbt50q_rx
+  - board: mdbt50q_rx
     shield: settings_reset
