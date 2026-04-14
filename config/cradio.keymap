@@ -190,7 +190,7 @@
             &sk LALT  &sk LGUI   &mkp RCLK  &mkp LCLK  &mkp MCLK       &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            BTLD      MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        MS(LEFT)   MS(UP)    MS(DOWN)   MS(RIGHT)   BTLD      
+          &sk LSHIFT  MM(LEFT)   MM(DOWN)    MM(UP)   MM(RIGHT)        MS(LEFT)   MS(UP)    MS(DOWN)   MS(RIGHT)  &sk RSHIFT      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
